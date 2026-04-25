@@ -1,0 +1,55 @@
+@import 'tailwindcss';
+
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    min-height: 200vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+:root {
+  /* Background */
+  --bg-primary: #050B1E;
+  --bg-card: #101935;
+
+  /* Brand Colors */
+  --primary: #FFD60A;     /* Lemon yellow */
+  --secondary: #00E5FF;   /* Electric cyan */
+
+  /* Accent */
+  --accent-orange: #FF8C42;
+  --accent-lime: #A7F432;
+
+  /* Text */
+  --text-primary: #F5F7FA;
+  --text-between: #C9D1E3;
+  --text-muted: #9CA3AF;
+
+  /* Effects */
+  --glow-yellow: rgba(255, 214, 10, 0.6);
+  --border-soft: rgba(255, 255, 255, 0.08);
+}
+
+@theme {
+  --color-bg: var(--bg-primary);
+  --color-card: var(--bg-card);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accento: var(--accent-orange);
+  --color-accentl: var(--accent-lime);
+  --color-primaryt: var(--text-primary);
+  --color-softt: var(--text-between);
+  --color-muted: var(--text-muted);
+
+  --color-glowy: var(--glow-yellow);
+  --color-borders: var(--border-soft);
+}
+.tr {
+    transition: all 0.4s ease-in-out;
+}

@@ -1,0 +1,57 @@
+
+.hero-head, .logo {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.head-link {
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 2px 4px;
+    color: var(--text-muted);
+    transition: all 0.2s ease-in;
+}
+.head-link:hover {
+    color: var(--secondary)
+}
+.active-link {
+    position: relative;
+    color: var(--text-primary);
+    transition: all 0.4s ease-in;
+}
+.active-link::after {
+    content: "";
+    width: 86%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    left: 7%;
+    bottom: 1px;
+    border-radius: 8px;
+}
+/* Circular Animation */
+@keyframes progress {
+  from { stroke-dashoffset: var(--circumference); }
+  to { stroke-dashoffset: 0; }
+}
+
+.circle-ani {
+  animation: progress var(--duration) linear infinite;
+  animation-delay: var(--delay);
+}
+
+/* Bars Animation */
+@keyframes barGrow {
+  0%, 100% { height: 4px; opacity: 0.3; }
+  50% { height: 20px; opacity: 1; }
+}
+
+.bar-span-ani {
+  width: 3px;
+  background-color: var(--secondary);
+  border-radius: 10px;
+  animation: barGrow var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
+}
