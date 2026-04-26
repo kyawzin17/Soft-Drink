@@ -2,10 +2,14 @@ import { useGSAP } from "@gsap/react";
 import BottleG from "../photo/bottleG.jpg";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
+import { forwardRef, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-export default function About() {
+
+interface AboutProps {
+    id: string;
+}
+const About= forwardRef<HTMLElement, AboutProps>(({ id }, ref) => {
     const aboutRef= useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
@@ -36,6 +40,7 @@ export default function About() {
     }, { scope: aboutRef});
 
     return(
+        <section id={id} ref={ref} className="w-full h-auto py-16 px-6 scroll-mt-16" >
             <div ref={aboutRef} className="max-w-6xl h-auto mx-auto flex flex-wrap justify-around items-center gap-x-12 gap-y-20">
                         <div className="about-lt max-w-100">
                             <h2 className="text-(--primary) font-bold text-2xl mb-6">Our Story</h2>
@@ -59,5 +64,8 @@ export default function About() {
                             </p>
                         </div>
             </div>
+        </section>
     )
-}
+})
+
+export default About;

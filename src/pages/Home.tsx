@@ -1,28 +1,32 @@
 import { FaCartPlus } from "react-icons/fa";
 import "../App.css";
-import { useRef } from "react";
+import { forwardRef, useRef } from "react";
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(useGSAP);
-export default function Home() {
+
+interface HomeProps {
+    id: string;
+    setCart: any;
+}
+const Home= forwardRef<HTMLElement, HomeProps>(({id, setCart}, ref) => {
 
     const heroRef= useRef<HTMLDivElement>(null);
-    const homeRef= useRef<HTMLElement>(null);
-
-    const tl= gsap.timeline({ defaults: { ease: "power2.out"}});
 
     useGSAP(() => {
-        tl.from(heroRef.current, {
+        const tl= gsap.timeline({ defaults: { ease: "power2.out"}});
+
+        tl.from(".home", {
             scaleY: 0,
             duration: 0.8,
             opacity: 1,
             delay: 0.2
         })
-    }, {scope: homeRef})
+    }, {})
 
     return (
-         <section ref={homeRef} id="home" className="w-full h-auto px-7 py-30 relative z-2">
+         <section ref={ref} id={id} className="home w-full h-auto px-6 py-30 relative z-2 scroll-mt-12">
                    <div className="max-w-6xl h-auto mx-auto relative">
                         {/* Hero */}
                         <div ref={heroRef} className="w-full flex flex-col justify-center items-center gap-2 h-70 z-12">    
@@ -32,7 +36,8 @@ export default function Home() {
                             </article>
                             <p className="head-mute text-base leading-5 block max-w-80 text-wrap text-softt line-height-sm text-center cursor-pointer">Made width pure natural lemon juice, it has a refreshing and refreshing taste.</p>
                             <div className="mt-4">
-                                <button className="flex items-center text-center bg-linear-to-r from-(--primary)/90 to-(--secondary)/80 py-2 px-4 text-extrabold text-black font-serif hover:shadow-[0_0_14px_rgba(255,214,10,0.6)] transition-all duration-100 cursor-pointer rounded-xl">
+                                <button 
+                                    onClick={() => setCart(true)} className="flex items-center text-center bg-linear-to-r from-(--primary)/90 to-(--secondary)/80 py-2 px-4 text-extrabold text-black font-serif hover:shadow-[0_0_14px_rgba(255,214,10,0.6)] transition-all duration-100 cursor-pointer rounded-xl">
                                  <span className="me-2">Shop now</span>
                                   <FaCartPlus size={18} /></button>    
                             </div>
@@ -40,4 +45,6 @@ export default function Home() {
                    </div>
             </section>
     )
-}
+})
+
+export default Home;

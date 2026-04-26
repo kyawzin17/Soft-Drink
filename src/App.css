@@ -10,26 +10,10 @@
     cursor: pointer;
     font-weight: 600;
     padding: 2px 4px;
-    color: var(--text-muted);
     transition: all 0.2s ease-in;
 }
 .head-link:hover {
     color: var(--secondary)
-}
-.active-link {
-    position: relative;
-    color: var(--text-primary);
-    transition: all 0.4s ease-in;
-}
-.active-link::after {
-    content: "";
-    width: 86%;
-    height: 2px;
-    background-color: rgba(255, 255, 255, 0.7);
-    position: absolute;
-    left: 7%;
-    bottom: 1px;
-    border-radius: 8px;
 }
 /* Circular Animation */
 @keyframes progress {
