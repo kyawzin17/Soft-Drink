@@ -10,7 +10,8 @@ interface HeadProp {
     setNoti: any,
 }
 const Header: React.FC<HeadProp> =({active, setActive, setCart, setUser, setNoti}) => {
-    const [ headerShadow, setHeaderShadow ]= useState<boolean>(false);    useEffect(() => {
+    const [ headerShadow, setHeaderShadow ]= useState<boolean>(false);    
+    useEffect(() => {
         const handleScroll= () => {
            if (window.scrollY > 10) {
             setHeaderShadow(true);
